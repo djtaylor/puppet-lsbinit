@@ -1,13 +1,10 @@
 # Deploy the init.d script
 class lsbinit::deploy(
-  $service_name       = undef,
-  $service_desc_short = undef,
-  $service_desc_long  = undef,
-  $service_pid        = undef,
-  $service_lock       = undef,
-  $service_cmd        = undef,
-  $service_log        = undef
-) {  
+  $id = undef
+) {
+  
+  # Service attributes
+  $lsbinit = Lsbinit[$id]
   
   # Init script
   $init_script = "/etc/init.d/${service_name}"
@@ -17,13 +14,13 @@ class lsbinit::deploy(
     ensure  => file,
     mode    => '0755',
     content => epp('service.epp', {
-      service_name       => $service_name,
-      service_desc_short => $service_desc_short,
-      service_desc_long  => $service_desc_long,
-      service_pid        => $service_pid,
-      service_lock       => $service_lock,
-      service_cmd        => $service_cmd,
-      service_log        => $service_log
+      service_name       => getparam($lsbinit, 'service_name'),
+      service_desc_short => getparam($lsbinit, 'service_desc_short'),
+      service_desc_long  => getparam($lsbinit, 'service_desc_long'),
+      service_pid        => getparam($lsbinit, 'service_pid'),
+      service_lock       => getparam($lsbinit, 'service_lock'),
+      service_cmd        => getparam($lsbinit, 'service_cmd'),
+      service_log        => getparam($lsbinit, 'service_log')
     })
   }
 }

@@ -20,7 +20,7 @@ if __name__ == '__main__':
         desc   = '<%= $service_desc_short %>',
         pid    = '<%= $service_pid %>',
         lock   = '<%= $service_lock %>',
-        exe    = [<%= $service_cmd.join(', ') %>],
+        exe    = '<%= $service_cmd %>',
         output = '<%= $service_log %>'
     )
 
