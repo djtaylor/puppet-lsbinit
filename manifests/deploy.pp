@@ -5,6 +5,7 @@ class lsbinit::deploy(
   
   # Service attributes
   $lsbinit = Lsbinit[$id]
+  $service_name = getparam($lsbinit, 'service_name')
   
   # Init script
   $init_script = "/etc/init.d/${service_name}"
@@ -14,7 +15,7 @@ class lsbinit::deploy(
     ensure  => file,
     mode    => '0755',
     content => epp('lsbinit/service.epp', {
-      service_name       => getparam($lsbinit, 'service_name'),
+      service_name       => $service_name,
       service_desc_short => getparam($lsbinit, 'service_desc_short'),
       service_desc_long  => getparam($lsbinit, 'service_desc_long'),
       service_pid        => getparam($lsbinit, 'service_pid'),
