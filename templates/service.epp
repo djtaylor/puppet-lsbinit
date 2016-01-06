@@ -1,0 +1,28 @@
+#!/usr/bin/env python
+from lsbinit import LSBInit
+
+### BEGIN INIT INFO
+# Provides:          <%= $service_name %>
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# Required-Start:    $syslog
+# Required-Stop:     $syslog
+# X-Interactive:     true
+# Short-Description: <%= $service_desc_short %>
+# Description:       <%= $service_desc_long %>
+### END INIT INFO
+
+if __name__ == '__main__':
+
+    # Create the service handler
+    service = LSBInit(
+        name   = '<%= $service_name %>',
+        desc   = '<%= $service_desc_short %>',
+        pid    = '<%= $service_pid %>',
+        lock   = '<%= $service_lock %>',
+        exe    = [<%= $service_cmd.join(', ') %>],
+        output = '<%= $service_log %>'
+    )
+
+    # Launch the service handler
+    service.interface()

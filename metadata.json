@@ -1,0 +1,16 @@
+{
+  "name": "lsbinit",
+  "version": "1.0.0",
+  "author": "David Taylor",
+  "summary": "Python LSBInit Module",
+  "license": "Apache-2.0",
+  "source": "https://github.com/djtaylor/puppet-lsbinit",
+  "project_page": "https://github.com/djtaylor/puppet-lsbinit",
+  "issues_url": "https://github.com/djtaylor/puppet-lsbinit/issues",
+  "dependencies": [
+    {
+      "name": "stankevich/python",
+      "version_requirement": "1.x"
+    }
+  ]
+}
