@@ -13,7 +13,7 @@ class lsbinit::deploy(
   file { $init_script: 
     ensure  => file,
     mode    => '0755',
-    content => epp('service.epp', {
+    content => epp('lsbinit/service.epp', {
       service_name       => getparam($lsbinit, 'service_name'),
       service_desc_short => getparam($lsbinit, 'service_desc_short'),
       service_desc_long  => getparam($lsbinit, 'service_desc_long'),
