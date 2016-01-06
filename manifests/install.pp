@@ -10,7 +10,9 @@ class lsbinit::install {
   # LSBInit module
   exec { 'install_lsbinit': 
     command => '/usr/bin/pip install lsbinit',
-    onlyif  => '/usr/bin/test -z "$(pip show lsbinit)"',
-    require => Exec['install_pip']
+    onlyif  => '/usr/bin/test -z "$(pip show lsbinit)"'
   }
+  
+  # Resource ordering
+  Exec['install_pip'] -> Exec['install_lsbinit']
 }
