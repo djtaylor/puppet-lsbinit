@@ -1,2 +1,2 @@
-# puppet-lsbinit
+# Puppet LSBInit
 Puppet module for installing services with LSBInit Python module
