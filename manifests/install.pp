@@ -2,7 +2,7 @@
 class lsbinit::install {
   
   # Python requirements
-  class { 'python' :
+  class { '::python':
     version => 'system',
     pip     => 'present'
   }
