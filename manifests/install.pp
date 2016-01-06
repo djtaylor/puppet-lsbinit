@@ -1,8 +1,9 @@
 # Install Python PIP and LSBInit module
 class lsbinit::install {
+  include python
   
   # Python requirements
-  class { '::python':
+  python {
     version => 'system',
     pip     => 'present'
   }
