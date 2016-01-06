@@ -2,15 +2,15 @@
 class lsbinit::install {
   
   # Python requirements
-  class { 'python':
-    version => 'system',
-    pip     => 'present'
+  exec { 'install_pip': 
+    command => '/usr/bin/apt-get install python-pip -y',
+    onlyif  => '/usr/bin/test ! -f /usr/bin/pip'
   }
-  contain 'python'
   
   # LSBInit module
-  python::pip { 'lsbinit' :
-    pkgname => 'lsbinit',
-    ensure  => present
+  exec { 'install_lsbinit': 
+    command => '/usr/bin/pip install lsbinit',
+    onlyif  => '/usr/bin/test -z "$(pip show lsbinit)"',
+    require => Exec['install_pip']
   }
 }
