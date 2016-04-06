@@ -10,12 +10,12 @@ define lsbinit(
   $service_cmd        = undef,
   $service_log        = undef
 ) {
-  
+
   # Install module
-  class { 'lsbinit::install': }
-  
+  class { '::lsbinit::install': }
+
   # Deploy init.d script
-  class { 'lsbinit::deploy': 
+  class { '::lsbinit::deploy':
     id      => $id,
     require => Class['lsbinit::install']
   }
