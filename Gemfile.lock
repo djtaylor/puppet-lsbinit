@@ -6,7 +6,7 @@ GEM
     docile (1.1.5)
     facter (2.4.6)
       CFPropertyList (~> 2.2.6)
-    facterdb (0.3.2)
+    facterdb (0.3.3)
       facter
       jgrep
     hiera (3.1.1)
@@ -59,7 +59,7 @@ GEM
       puppet-syntax
       rake
       rspec-puppet
-    rake (11.1.1)
+    rake (11.1.2)
     rspec (3.4.0)
       rspec-core (~> 3.4.0)
       rspec-expectations (~> 3.4.0)
@@ -74,7 +74,7 @@ GEM
       rspec-support (~> 3.4.0)
     rspec-puppet (2.4.0)
       rspec
-    rspec-puppet-facts (1.4.1)
+    rspec-puppet-facts (1.5.0)
       facter
       facterdb (>= 0.3.0)
       json
@@ -119,4 +119,4 @@ DEPENDENCIES
   simplecov
 
 BUNDLED WITH
-   1.12.0.rc
+   1.11.2
